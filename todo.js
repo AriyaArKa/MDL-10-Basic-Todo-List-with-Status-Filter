@@ -1,31 +1,27 @@
-// 1. Create an array of todo items
-const todos = [
+let todos = [
+  { title: "learn JS", done: false },
   { title: "Do homework", done: false },
-  { title: "Wash dishes", done: true },
-  { title: "Pay bills", done: false },
-  { title: "Read a book", done: true },
-  { title: "Go for a run", done: false },
+  { title: "Make a simple project", done: true },
+  { title: "Understanding the array", done: true },
 ];
 
-// 2. Filter the todos into two separate arrays
-const doneTasks = todos.filter((task) => task.done);
-const ongoingTasks = todos.filter((task) => !task.done);
+let doneTodos = [];
+let ongoingTodos = [];
 
-// 3. Display the tasks
-console.log("=== Done ===");
-if (doneTasks.length) {
-  doneTasks.forEach((task, i) => {
-    console.log(`${i + 1}. ${task.title}`);
-  });
-} else {
-  console.log("No completed tasks.");
-}
+todos.forEach((todo) => {
+  if (todo.done) {
+    doneTodos.push(todo);
+  } else {
+    ongoingTodos.push(todo);
+  }
+});
 
-console.log("\n=== Ongoing ===");
-if (ongoingTasks.length) {
-  ongoingTasks.forEach((task, i) => {
-    console.log(`${i + 1}. ${task.title}`);
-  });
-} else {
-  console.log("No ongoing tasks.");
-}
+console.log("✅ Done todos:");
+doneTodos.forEach((todo) => {
+  console.log(`- ${todo.title}`);
+});
+
+console.log("\n⏳ Ongoing todos:");
+ongoingTodos.forEach((todo) => {
+  console.log(`- ${todo.title}`);
+});
